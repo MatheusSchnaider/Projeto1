@@ -1,0 +1,66 @@
+using System;
+
+namespace Exercicio11
+{
+	class Program
+	{
+		static Int32 LerInteiroPositivo()
+		{
+			Int32 numero = 0;
+			Boolean valorValido = false;
+
+			do
+			{
+				try
+				{
+					numero = Convert.ToInt32(Console.ReadLine());
+					valorValido = true;
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine("Valor inválido");
+				}
+
+				if (valorValido == true && numero <= 0)
+				{
+					valorValido = false;
+
+					Console.WriteLine("Somente inteiros positivos");
+				}
+			} while (valorValido == false);
+
+			return numero;
+		}
+
+		static void Main(string[] args)
+		{
+			Int32 opcao = 0;
+
+			do
+			{
+				Console.WriteLine("1 - Matricular Aluno");
+				Console.WriteLine("2 - Excluir Aluno");
+				Console.WriteLine("3 - Procurar Aluno");
+				Console.WriteLine("4 - Sair");
+
+				opcao = LerInteiroPositivo();
+
+				switch (opcao)
+				{
+					case 1:
+						Console.WriteLine("Aluno matriculado com sucesso");
+						break;
+					case 2:
+						Console.WriteLine("Aluno excluído com sucesso");
+						break;
+					case 3:
+						Console.WriteLine("Aluno encontrado com sucesso");
+						break;
+					default:
+						Console.WriteLine("Opção inválida");
+						break;
+				}
+			} while (opcao != 4);
+		}
+	}
+}
